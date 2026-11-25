@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timurhan | Personal Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #080d0b;
+    --card: #101915;
+    --green: #a3ff68;
+    --text: #f1f5f2;
+    --muted: #89968e;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #a3ff6810;
+    filter: blur(120px);
+    top: -200px;
+    right: -100px;
+    z-index: -1;
+}
+
+nav {
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #aab5ad;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 12% 70px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 750px;
+    animation: appear 1s ease;
+}
+
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid #a3ff6830;
+    background: #a3ff680b;
+    padding: 10px 16px;
+    border-radius: 50px;
+    color: var(--green);
+    font-size: 12px;
+    margin-bottom: 35px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--green);
+}
+
+h1 {
+    font-size: clamp(55px, 9vw, 105px);
+    font-weight: 900;
+    letter-spacing: -7px;
+    line-height: .95;
+}
+
+h1 span {
+    color: var(--green);
+}
+
+.hero p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-top: 30px;
+    max-width: 510px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 23px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.primary {
+    background: var(--green);
+    color: #101810;
+}
+
+.primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px #a3ff6830;
+}
+
+.secondary {
+    color: white;
+    border: 1px solid #ffffff25;
+}
+
+.secondary:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.scroll {
+    position: absolute;
+    bottom: 35px;
+    left: 12%;
+    color: #68736c;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+section {
+    padding: 110px 12%;
+}
+
+.section-label {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 45px;
+}
+
+.about {
+    background: #0c130f;
+}
+
+.about-text {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2;
+    max-width: 700px;
+}
+
+.about-text strong {
+    color: white;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #ffffff0c;
+    padding: 30px;
+    border-radius: 17px;
+    transition: .4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    border-color: #a3ff6850;
+    background: #142119;
+}
+
+.card-icon {
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+
+.card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.number {
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.contact {
+    text-align: center;
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
+
+.contact h2 {
+    font-size: clamp(35px, 6vw, 65px);
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+footer {
+    border-top: 1px solid #ffffff10;
+    padding: 28px 12%;
+    display: flex;
+    justify-content: space-between;
+    color: #77827a;
+    font-size: 11px;
+}
+
+footer span {
+    color: var(--green);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: .8s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width: 750px) {
+    nav {
+        padding: 22px 6%;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 130px 7% 80px;
+    }
+
+    h1 {
+        letter-spacing: -4px;
+    }
+
+    section {
+        padding: 85px 7%;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .scroll {
+        left: 7%;
+    }
+
+    footer {
+        padding: 25px 7%;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
+
+@media(max-width: 400px) {
+    nav ul {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">TIMURHAN<span>.</span></div>
+    <ul>
+        <li><a href="#home">Ana Sayfa</a></li>
+        <li><a href="#about">Hakkımda</a></li>
+        <li><a href="#interests">İlgi Alanlarım</a></li>
+    </ul>
+</nav>
+
+<header class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="status">
+            <span class="dot"></span>
+            ANTALYA, TÜRKİYE · MERAKLI BİR ZİHİN
+        </div>
+
+        <h1>Merhaba,<br>Ben <span>Timurhan.</span></h1>
+
+        <p>
+            Kod yazmayı, yeni yerler keşfetmeyi ve doğada vakit
+            geçirmeyi seven biriyim. Her gün yeni bir şey öğreniyor,
+            hayallerimi gerçeğe dönüştürmek için çalışıyorum.
+        </p>
+
+        <div class="buttons">
+            <a href="#interests" class="btn primary">İlgi Alanlarım ↗</a>
+            <a href="#about" class="btn secondary">Beni Tanı</a>
+        </div>
+    </div>
+
+    <div class="scroll">SCROLL TO EXPLORE ↓</div>
+</header>
+
+<section class="about" id="about">
+    <div class="reveal">
+        <div class="section-label">01 / HAKKIMDA</div>
+        <h2 class="section-title">Kısaca ben.</h2>
+
+        <p class="about-text">
+            Selam! Ben <strong>Timurhan</strong>. 13 yaşındayım
+            ve Antalya'da yaşıyorum. Teknolojiye, doğaya ve
+            keşfetmeye büyük ilgi duyuyorum.
+            <br><br>
+            Bir yandan yazılım öğrenerek kendi projelerimi
+            geliştirmek istiyorum, diğer yandan oryantiring
+            ile yön bulma ve keşif becerilerimi geliştiriyorum.
+            Boş zamanlarımda ise balık tutmaya giderek
+            doğanın tadını çıkarıyorum.
+            <br><br>
+            Benim için her yeni gün, yeni bir macera ve
+            öğrenilecek yeni bir şey demek!
+        </p>
+    </div>
+</section>
+
+<section id="interests">
+    <div class="reveal">
+        <div class="section-label">02 / TUTKULARIM</div>
+        <h2 class="section-title">Sevdiğim şeyler.</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card reveal">
+            <div class="number">01 — TECHNOLOGY</div>
+            <div class="card-icon">💻</div>
+            <h3>Yazılım</h3>
+            <p>
+                Kod yazmak, yeni teknolojiler öğrenmek
+                ve hayalimdeki projeleri geliştirmek.
+            </p>
+        </div>
+
+        <div class="card reveal">
+            <div class="number">02 — ADVENTURE</div>
+            <div class="card-icon">🧭</div>
+            <h3>Oryantiring</h3>
+            <p>
+                Harita ve pusula ile yeni rotalar keşfetmek,
+                doğada yönümü bulmak ve mücadele etmek.
+            </p>
+        </div>
+
+        <div class="card reveal">
+            <div class="number">03 — NATURE</div>
+            <div class="card-icon">🎣</div>
+            <h3>Balıkçılık</h3>
+            <p>
+                Boş zamanlarımda balık tutmaya gitmek,
+                doğanın sessizliğinin ve huzurunun tadını çıkarmak.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact">
+    <div class="reveal">
+        <div class="section-label">03 / SON SÖZ</div>
+        <h2>Hayaller kodla,<br><span style="color:#a3ff68">gerçekler keşifle.</span></h2>
+        <p>Her şey merak etmekle başlar.</p>
+        <a href="#home" class="btn primary">Başa Dön ↑</a>
+    </div>
+</section>
+
+<footer>
+    <div>© 2026 <span>TIMURHAN</span>. Tüm hakları saklıdır.</div>
+    <div>DESIGNED WITH CURIOSITY 💚</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+console.log("Selam Timurhan! 🚀 Başarılar!");
+</script>
+
+</body>
+</html>
